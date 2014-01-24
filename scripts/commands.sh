@@ -1,4 +1,3 @@
-
 #pegar urls das leis municipais
 lynx -dump -listonly *.html | grep -e 'a/sc' | cut -d ' ' -f4 | sed -e s_file:..localhost__g | sort | uniq 
 
@@ -39,6 +38,4 @@ find . -name '*.doc' -exec mv {} all_files_doc \
 curl 'http://www.alesc.sc.gov.br/proclegis/tramitacao.php' -H 'Cookie: PHPSESSID=7o8fo9qeh4k9ul5hgaira2d3h3i83281' -H 'Origin: http://www.alesc.sc.gov.br' -H 'Accept-Encoding: gzip,deflate,sdch' -H 'Host: www.alesc.sc.gov.br' -H 'Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.6,en;q=0.4,ca;q=0.2' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Cache-Control: max-age=0' -H 'Referer: http://www.alesc.sc.gov.br/proclegis/tramitacao.php' -H 'Connection: keep-alive' --data 'Ano=&Assunto=&SiglaProp=&Status01=&Status02=&CodProced=&DepartCod=&PropNum=&Autor=&PropTramitando=3&DataInicial=&DataFinal=&TipoApresentacao=3&Pagina=1233' --compressed
 
 #extrai somente os códigos do candidatos
-cat *.xml | grep -R 'sqCand' | grep -oP '[0-9]+' > /mnt/dados/prestacao_contas/codigos_candidatos_sc.txt
-
-cat /mnt/arquiov/xuxu.xml | grep 'sqCand' | grep -oP '[0-9]+' > /mnt/dados/prestacao_contas/codigos_candidatos_sc.txt
+cat /mnt/arquivo/*.xml | grep 'sqCand' | grep -oP '[0-9]+' > /mnt/dados/prestacao_contas/codigos_candidatos_sc.txt
