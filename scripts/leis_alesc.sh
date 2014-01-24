@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#download 
+#wget -e robots=off -r -nd -np http://200.192.66.20/alesc/docs/ 
+
 #docs to txt
 FILES=/mnt/dados/alesc/all_files_doc/*
 for f in $FILES
